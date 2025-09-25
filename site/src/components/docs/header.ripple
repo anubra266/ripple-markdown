@@ -1,6 +1,7 @@
 import { Button } from "../ui/button.ripple";
 import { ThemeToggle } from "../theme-toggle.ripple";
 import { Github, Sparkles } from "lucide-ripple";
+import { Logo } from "../logo.ripple";
 
 export component Header() {
     <header class="sticky top-0 z-50 border-b border-border/50 backdrop-blur-sm bg-background/80">
@@ -8,14 +9,14 @@ export component Header() {
       <div class="flex items-center justify-between">
         <div class="flex items-center gap-3">
           <div class="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
-            <Sparkles class="w-5 h-5 text-primary-foreground" />
+            <Logo class="w-5 h-5 text-primary-foreground" />
           </div>
           <div>
             <h1 class="text-xl font-bold text-foreground">
-              {"Lucide Ripple"}
+              {"Ripple Markdown"}
             </h1>
             <p class="text-sm text-muted-foreground">
-              {"Icons for Ripple JS"}
+              {"Markdown for Ripple JS"}
             </p>
           </div>
         </div>
@@ -39,10 +40,10 @@ export component Header() {
             {"Props"}
           </a>
           <a
-            href="#icons"
+            href="#markdown"
             class="text-sm text-muted-foreground hover:text-foreground transition-colors"
           >
-            {"Icons"}
+            {"Markdown"}
           </a>
         </nav>
         <div class="flex items-center gap-2">

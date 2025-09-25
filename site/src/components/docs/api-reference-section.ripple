@@ -2,42 +2,61 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "../ui/card.ripple";
 
 const apiProps = [
-    {
-      prop: "size",
-      type: "number | string",
-      default: "24",
-      description: "Icon size in pixels",
-    },
-    {
-      prop: "color",
-      type: "string",
-      default: "currentColor",
-      description: "Icon color",
-    },
-    {
-      prop: "strokeWidth",
-      type: "number",
-      default: "2",
-      description: "Stroke width",
-    },
-    {
-      prop: "absoluteStrokeWidth",
-      type: "boolean",
-      default: "false",
-      description: "Whether strokeWidth is proportional to size",
-    },
-    {
-      prop: "...props",
-      type: "SVGProps",
-      default: "-",
-      description: "All standard SVG attributes",
-    },
-  ];
+  {
+    prop: "markdown",
+    type: "string",
+    description: "The markdown content to render",
+  }, 
+  {
+    prop: "allowElement",
+    type: "AllowElement",
+    description: "Function to programmatically filter elements (overrides allowedElements/disallowedElements)",
+  },
+  {
+    prop: "allowedElements",
+    type: "Array<string>",
+    description: "HTML tag names to allow in output (mutually exclusive with disallowedElements)",
+  },
+  {
+    prop: "disallowedElements",
+    type: "Array<string>",
+    description: "HTML tag names to remove from output (mutually exclusive with allowedElements)",
+  },
+  {
+    prop: "components",
+    type: "Components",
+    description: "Custom Ripple components to use for specific HTML elements",
+  },
+  {
+    prop: "rehypePlugins",
+    type: "Array<Plugin>",
+    description: "Rehype plugins for processing the HTML syntax tree",
+  },
+  {
+    prop: "remarkPlugins",
+    type: "Array<Plugin>",
+    description: "Remark plugins for processing the markdown syntax tree",
+  },
+  {
+    prop: "skipHtml",
+    type: "boolean",
+    description: "Remove all HTML elements from markdown content",
+  },
+  {
+    prop: "unwrapDisallowed",
+    type: "boolean",
+    description: "Keep children content when removing disallowed elements",
+  },
+  {
+    prop: "urlTransform",
+    type: "UrlTransform",
+    description: "Function to sanitize and transform URLs in links and images",
+  },
+];
 
   const tableHeaders = [
     { label: "Prop", class: "text-left py-3 px-4 font-medium" },
     { label: "Type", class: "text-left py-3 px-4 font-medium" },
-    { label: "Default", class: "text-left py-3 px-4 font-medium" },
     { label: "Description", class: "text-left py-3 px-4 font-medium" },
   ];
 
@@ -75,7 +94,6 @@ export component ApiReferenceSection() {
                             <td class="py-3 px-4 text-green-600 dark:text-green-400">
                                 {prop.type}
                             </td>
-                            <td class="py-3 px-4 font-mono">{prop.default}</td>
                             <td class="py-3 px-4">{prop.description}</td>
                         </tr>
                     }

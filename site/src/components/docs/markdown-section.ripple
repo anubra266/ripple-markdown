@@ -1,0 +1,179 @@
+import RippleMarkdown from "ripple-markdown";
+import remarkGfm from 'remark-gfm'
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "../ui/card.ripple";
+import { Code } from "../code.ripple";
+import { useCopy } from "../../lib/use-copy.ripple";
+import { Button } from "../ui/button.ripple";
+import { Check, Copy, ExternalLink } from "lucide-ripple";
+
+export component MarkdownSection() {
+    let [copyGfmCode, copiedGfmCode] = useCopy()
+    let [copyCustomComponentsCode, copiedCustomComponentsCode] = useCopy()
+
+    <section id="markdown" class="container mx-auto px-6 py-16">
+      <div class="max-w-4xl mx-auto">
+        <h2 class="text-3xl font-bold mb-8">{"Markdown"}</h2>
+
+        <RippleMarkdown markdown={`It's time to write some **markdown**! And yeah, I'm also written in **markdown**.😉`} />
+
+        const gfmPlugin = `# GitHub Flavored Markdown
+
+## Text Formatting
+
+Regular text with **bold**, *italic*, and ~~strikethrough~~ text.
+You can also use \`inline code\` and combine ***bold italic*** text.
+
+## Task Lists
+
+- [x] Write the documentation
+- [x] Add syntax highlighting  
+- [ ] Deploy to production
+- [ ] Add more examples
+
+## Tables with Alignment
+
+| Feature | Status | Priority |
+|---------|:------:|---------:|
+| Tables  | ✅ Done | High |
+| Syntax highlighting | ✅ Done | Medium |
+| Footnotes | ❌ Todo | Low |
+
+## Code Blocks
+
+\`\`\`javascript
+const markdown = "# Hello GFM!";
+console.log("Syntax highlighting works!");
+\`\`\`
+
+## Autolinks
+
+Visit https://github.com/remarkjs/react-markdown automatically becomes a link!
+
+## Line Breaks
+
+First line  
+Second line (two spaces above creates a break)
+
+Third line after paragraph break.
+
+## Blockquotes
+
+> GitHub Flavored Markdown extends CommonMark with:
+> - Task lists
+> - Tables  
+> - Strikethrough
+> - Autolinks`
+
+        <Card class="my-8">
+          <CardHeader>
+            <CardTitle>{"Github Flavored Markdown"}</CardTitle>
+            <CardDescription>{"Use the remark-gfm plugin to enable Github Flavored Markdown"}</CardDescription>
+          </CardHeader>
+          <CardContent>
+            const code = `const code = \`${gfmPlugin}\`
+
+<RippleMarkdown remarkPlugins={[remarkGfm]} markdown={code} />`
+
+            <div class="rounded-lg p-4 relative">
+                <Code code={code} language="md" class="max-h-[300px] overflow-y-auto" />
+              <Button
+                size="sm"
+                variant="ghost"
+                class="absolute top-2 right-2"
+                onClick={() =>
+                  copyGfmCode(code)
+                }
+              >
+                if(@copiedGfmCode) {
+                      <Check class="w-4 h-4" />
+                } else {
+                    <Copy class="w-4 h-4" />
+                }
+              </Button>
+            </div>
+            <hr class="mt-4 mb-8" />
+            <div class="dark bg-background! p-4 rounded-lg markdown-body max-h-[350px] overflow-y-auto">
+              <RippleMarkdown remarkPlugins={[remarkGfm]} markdown={gfmPlugin} class="mb-8" />
+            </div>
+          </CardContent>
+        </Card>
+
+        <Card class="my-8">
+          <CardHeader>
+            <CardTitle>{"Custom Components"}</CardTitle>
+            <CardDescription>{"Use the components prop to customize the markdown rendering"}</CardDescription>
+          </CardHeader>
+          <CardContent>
+
+            const customComponents = `# Hello World
+You can find more about Ripple at [Ripple's Docs](https://www.ripplejs.com/)`
+
+            const code = `import { ExternalLink } from 'lucide-ripple'
+
+export default component App() {
+
+  const code = \`${customComponents}\`
+
+  <RippleMarkdown 
+    markdown={code} 
+    components={{
+      h1: H1,
+      a: A,
+    }}
+  />
+}
+
+component H1(props) {
+  <h2 class="text-xl font-bold">
+    <props.children />
+  </h2>
+}
+
+component A(props) {
+  <a class="text-primary inline-flex items-center gap-2" {props.href} target="_blank">
+    <props.children />
+    <ExternalLink class="w-4 h-4" />
+  </a>
+}`
+
+            <div class="rounded-lg p-4 relative">
+                <Code code={code} language="jsx" class="max-h-[400px] overflow-y-auto" />
+              <Button
+                size="sm"
+                variant="ghost"
+                class="absolute top-2 right-2"
+                onClick={() =>
+                  copyCustomComponentsCode(code)
+                }
+              >
+                if(@copiedCustomComponentsCode) {
+                      <Check class="w-4 h-4" />
+                } else {
+                    <Copy class="w-4 h-4" />
+                }
+              </Button>
+            </div>
+            <hr class="mt-4 mb-8" />
+            <div class="p-4 rounded-lg max-h-[350px] overflow-y-auto">
+              <RippleMarkdown 
+                markdown={customComponents} 
+                class="mb-8" 
+                components={{
+                  h1: H1,
+                  a: A,
+                }}
+              />
+            </div>
+          </CardContent>
+        </Card>
+      </div>
+    </section>
+}
+
+component H1(props) {
+  <h2 class="text-xl font-bold"><props.children /></h2>
+}
+
+component A(props) {
+  <a class="text-primary inline-flex items-center gap-2" href={props.href} target="_blank"><props.children /> <ExternalLink class="w-4 h-4" /></a>
+}

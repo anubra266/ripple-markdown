@@ -42,13 +42,13 @@ export component InstallationSection() {
 
         <Card>
           <CardHeader>
-            <CardTitle>{"Import Icons"}</CardTitle>
+            <CardTitle>{"Import Markdown"}</CardTitle>
             <CardDescription>
-              {"Import individual icons."}
+              {"Import the default component."}
             </CardDescription>
           </CardHeader>
           <CardContent>
-            const importCode = `import { Heart, Star, Home } from 'ripple-markdown'`
+            const importCode = `import RippleMarkdown from 'ripple-markdown'`
             <div class="rounded-lg p-4 relative">
               <Code code={importCode} language="javascript" />
               <Button

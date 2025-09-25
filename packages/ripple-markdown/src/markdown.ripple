@@ -1,8 +1,8 @@
 import { unreachable } from 'devlop'
 import { toJsxRuntime } from 'hast-util-to-jsx-runtime'
+import { Fragment, jsx, jsxs } from 'ripple-jsx'
 import { urlAttributes } from 'html-url-attributes'
 import { track, effect, mount } from 'ripple'
-import { Fragment, jsx, jsxs } from 'ripple-jsx'
 import remarkParse from 'remark-parse'
 import remarkRehype from 'remark-rehype'
 import { unified } from 'unified'
@@ -166,7 +166,6 @@ function post(tree, options) {
 
   visit(tree, transform)
 
-  console.log({tree})
   return toJsxRuntime(tree, {
     Fragment,
     components,
@@ -256,5 +255,5 @@ export component Markdown(props) {
             @markdownNode = undefined;
         };
     };
-    <div {ref divRef} />
+    <div style="display: contents;" {ref divRef} />
 }

@@ -7,21 +7,20 @@ import { Check, Copy } from "lucide-ripple";
 
 export component UsageSection() {
     let [copyBasicUsage, copiedBasicUsage] = useCopy()
-    let [copyCustomStyling, copiedCustomStyling] = useCopy()
+    let [copyPlugins, copiedPlugins] = useCopy()
 
     let basicUsageCode = `export component MyComponent() {
-  <Heart />
-  <Star class="text-yellow-500" />
-  <Home size={24} />
+  const markdown = '# Hi, *Ripple*!'
+
+  <RippleMarkdown markdown={markdown} />
 }`;
 
-    let customStylingCode = `export component MyComponent() {
-  <Heart 
-    size={32}
-    color="red"
-    strokeWidth={1.5}
-    class="hover:scale-110 transition-transform"
-  />
+    let pluginsCode = `import remarkGfm from 'remark-gfm';
+
+export component MyComponent() {
+  const markdown = 'Ripple docs are at: https://www.ripplejs.com/'
+
+  <RippleMarkdown remarkPlugins={[remarkGfm]} markdown={markdown} />
 }`;
 
     <section id="usage" class="container mx-auto px-6 py-16">
@@ -57,21 +56,21 @@ export component UsageSection() {
 
         <Card>
           <CardHeader>
-            <CardTitle>{"With Custom Styling"}</CardTitle>
+            <CardTitle>{"With Plugins"}</CardTitle>
             <CardDescription>
-              {"Customize icons with props and CSS classes"}
+              {"Use plugins to extend the markdown rendering"}
             </CardDescription>
           </CardHeader>
           <CardContent>
             <div class=" rounded-lg p-4 relative">
-              <Code code={customStylingCode} language="jsx" />
+              <Code code={pluginsCode} language="jsx" />
               <Button
                 size="sm"
                 variant="ghost"
                 class="absolute top-2 right-2"
-                onClick={() => copyCustomStyling(customStylingCode)}
+                onClick={() => copyPlugins(pluginsCode)}
               >
-                if(@copiedCustomStyling) {
+                if(@copiedPlugins) {
                     <Check class="w-4 h-4" />
                 } else {
                     <Copy class="w-4 h-4" />

@@ -3,35 +3,18 @@ import { HeroSection } from './components/docs/hero-section.ripple';
 import { InstallationSection } from './components/docs/installation-section.ripple';
 import { UsageSection } from './components/docs/usage-section.ripple';
 import { ApiReferenceSection } from './components/docs/api-reference-section.ripple';
-//import { IconLibrarySection } from './components/docs/icon-library-section.ripple';
-import RippleMarkdown from "ripple-markdown";
-
-const markdown = `A paragraph with *emphasis* and **strong importance**.
-
-> A block quote with ~strikethrough~ and a URL: https://reactjs.org.
-
-* Lists
-* [ ] todo
-* [x] done
-
-A table:
-
-| a | b |
-| - | - |
-`
+import { MarkdownSection } from './components/docs/markdown-section.ripple';
 
 export component App() {
     
     <div class="fixed inset-0 grid-pattern opacity-50" />
     <Header />
 
-    <RippleMarkdown {markdown} />
-
     <main class="relative">
         <HeroSection />
         <InstallationSection />
         <UsageSection />
         <ApiReferenceSection />
-        //<IconLibrarySection />
+        <MarkdownSection />
     </main>
 }
