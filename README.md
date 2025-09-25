@@ -25,7 +25,7 @@
 
 </a>
     <br />
-   Lucide Icons for Ripple JS
+   Markdown Renderer for Ripple JS
     
   </sup>
   <br />
