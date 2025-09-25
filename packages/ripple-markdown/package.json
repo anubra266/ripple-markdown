@@ -39,7 +39,7 @@
     "html-url-attributes": "^3.0.1",
     "remark-parse": "^11.0.0",
     "remark-rehype": "^11.1.2",
-    "ripple-jsx": "^0.0.1",
+    "ripple-jsx": "^0.0.2",
     "unified": "^11.0.5",
     "unist-util-visit": "^5.0.0",
     "vfile": "^6.0.3"

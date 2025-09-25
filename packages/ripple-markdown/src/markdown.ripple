@@ -233,16 +233,16 @@ function post(tree, options) {
 
 export component Markdown(props) {
     const [markdown, rest] = track(props, {split: ['markdown']});
-    let node = track();
+    let markdownNode = track();
 
     effect(() => {
-        if(!@node) return
+        if(!@markdownNode || !(@markdownNode instanceof HTMLElement)) return
         const processor = createProcessor(@rest)
         const file = createFile(@markdown)
         const result = post(processor.runSync(processor.parse(file), file), @rest)
 
         const cleanup = mount(result, {
-            target: @node,
+            target: @markdownNode,
         });
 
         return () => {
@@ -251,9 +251,9 @@ export component Markdown(props) {
     })
     
     const divRef = (node) => {
-        @node = node;    
+        @markdownNode = node;  
         return () => {
-            @node = undefined;
+            @markdownNode = undefined;
         };
     };
     <div {ref divRef} />
