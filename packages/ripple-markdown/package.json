@@ -1,0 +1,47 @@
+{
+  "name": "ripple-markdown",
+  "version": "0.0.0",
+  "description": "Markdown for Ripple JS",
+  "keywords": [
+    "js",
+    "component",
+    "markdown",
+    "RippleJS",
+    "ripple"
+  ],
+  "author": "Abraham Aremu <anubra266@gmail.com>",
+  "homepage": "https://github.com/anubra266/ripple-markdown#readme",
+  "license": "MIT",
+  "main": "src/index.ripple",
+  "repository": "https://github.com/anubra266/ripple-markdown/tree/main/packages/ripple-markdown",
+  "sideEffects": false,
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": [
+    "src"
+  ],
+  "bugs": {
+    "url": "https://github.com/anubra266i/ripple-markdown/issues"
+  },
+  "scripts": {
+    "test": "echo \"No test specified\""
+  },
+  "peerDependencies": {
+    "ripple": ">=0.2.0"
+  },
+  "devDependencies": {
+    "typescript": "~5.6.2"
+  },
+  "dependencies": {
+    "devlop": "^1.1.0",
+    "hast-util-to-jsx-runtime": "^2.3.6",
+    "html-url-attributes": "^3.0.1",
+    "remark-parse": "^11.0.0",
+    "remark-rehype": "^11.1.2",
+    "ripple-jsx": "^0.0.1",
+    "unified": "^11.0.5",
+    "unist-util-visit": "^5.0.0",
+    "vfile": "^6.0.3"
+  }
+}

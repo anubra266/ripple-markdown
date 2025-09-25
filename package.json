@@ -1,0 +1,19 @@
+{
+  "name": "ripple-markdown",
+  "version": "0.0.0",
+  "description": "Markdown for Ripple JS",
+  "scripts": {
+    "test": "echo \"No test specified\"",
+    "site": "pnpm --filter=./site"
+  },
+  "keywords": [],
+  "author": "anubra266",
+  "license": "ISC",
+  "packageManager": "pnpm@9.15.0",
+  "devDependencies": {
+    "typescript": "^5.9.2"
+  },
+  "dependencies": {
+    "prettier-plugin-ripple": "^0.2.68"
+  }
+}
