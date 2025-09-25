@@ -37,8 +37,8 @@ importers:
         specifier: '>=0.2.0'
         version: 0.2.76
       ripple-jsx:
-        specifier: ^0.0.2
-        version: 0.0.2(ripple@0.2.76)
+        specifier: ^0.0.6
+        version: 0.0.6(ripple@0.2.76)
       unified:
         specifier: ^11.0.5
         version: 11.0.5
@@ -979,8 +979,8 @@ packages:
   remark-stringify@11.0.0:
     resolution: {integrity: sha512-1OSmLd3awB/t8qdoEOMazZkNsfVTeY4fTsgzcQFdXNq8ToTN4ZGwrMnlda4K6smTFKD+GRV6O48i6Z4iKgPPpw==}
 
-  ripple-jsx@0.0.2:
-    resolution: {integrity: sha512-QGm5GBzzT4ToDQsA/tkUnUvmLQeh2GAA0GatdWT1GYjZvHs5w5/DvIm68jhonaZEnnCgVC7rqEasIR/5fFwKsw==}
+  ripple-jsx@0.0.6:
+    resolution: {integrity: sha512-85GBsqW1fBdb9dwYd1zrKeMrNfoMHCManmvqptl45KPw2vL4KquJwWuqTSkF1xV59+nVG4a7M79WS0hwzqeLDg==}
     peerDependencies:
       ripple: '>=0.2.0'
 
@@ -2079,7 +2079,7 @@ snapshots:
       mdast-util-to-markdown: 2.1.2
       unified: 11.0.5
 
-  ripple-jsx@0.0.2(ripple@0.2.76):
+  ripple-jsx@0.0.6(ripple@0.2.76):
     dependencies:
       ripple: 0.2.76
 
