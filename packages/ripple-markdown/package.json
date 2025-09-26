@@ -12,7 +12,7 @@
   "author": "Abraham Aremu <anubra266@gmail.com>",
   "homepage": "https://github.com/anubra266/ripple-markdown#readme",
   "license": "MIT",
-  "main": "src/index.ripple",
+  "main": "src/index.js",
   "repository": "https://github.com/anubra266/ripple-markdown/tree/main/packages/ripple-markdown",
   "sideEffects": false,
   "publishConfig": {

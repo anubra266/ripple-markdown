@@ -1,6 +1,0 @@
-export {
-    Markdown as default,
-    defaultUrlTransform
-  } from './markdown.ripple'
-
-
