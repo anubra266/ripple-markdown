@@ -1,22 +1,19 @@
 
-import { codeToHtml } from 'shiki'
-import { cn } from '../lib/utils'
+import { codeToHtml } from 'https://esm.sh/shiki@3.0.0'
 
-export component Code({
-    code,
-    language,
-    class:className,
-    ...props
-}) {
+import { cn } from '../lib/utils'
+import { track, effect } from 'ripple'
+
+export component Code(props) {
+	const [code, rest] = track(props, {split: ['code']});
 
 	const divRef = async (node) => {
-		const html = await codeToHtml(code, {
+		const html = await codeToHtml(@code, {
 			theme: 'vitesse-dark',
-			lang: language,
+			lang: @rest.language,
 		});
-
 		node.innerHTML = html;
 	};
     
-    <div {ref divRef} class={cn("[&>pre]:!bg-transparent text-sm", className)} {...props} />
+    <div {ref divRef} {...@rest} class={cn("[&>pre]:!bg-transparent text-sm", @rest.class)}  />
 }

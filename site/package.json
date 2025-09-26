@@ -28,9 +28,8 @@
 		"clsx": "^2.1.1",
 		"lucide-ripple": "^0.0.4",
 		"remark-gfm": "^4.0.1",
-		"ripple": "^0.2.76",
+		"ripple": "^0.2.80",
 		"ripple-markdown": "workspace:*",
-		"shiki": "^3.13.0",
 		"tailwind-merge": "^2.5.5",
 		"tw-animate-css": "1.3.3"
 	}
